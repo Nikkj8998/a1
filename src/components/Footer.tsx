@@ -1,25 +1,25 @@
-import { motion } from 'framer-motion';
-import { useNavigate, useLocation } from 'react-router-dom';
-import logo from '../assets/logo.png';
+import { motion } from "framer-motion";
+import { useNavigate, useLocation } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const navigate = useNavigate();
   const location = useLocation();
 
-  const isHomePage = location.pathname === '/';
+  const isHomePage = location.pathname === "/";
 
   const navLinks = [
-    { name: 'About Whom', href: '#pillars' },
-    { name: 'Our Work', href: '#programs' },
-    { name: 'CSR Activities', href: '/csr-activities' },
-    { name: 'Impact', href: '#impact' },
-    { name: 'Vision', href: '#vision' },
-    { name: 'Connect', href: '#connect' },
+    { name: "About Whom", href: "#pillars" },
+    { name: "Our Work", href: "#programs" },
+    { name: "CSR Activities", href: "/csr-activities" },
+
+    { name: "Vision", href: "#vision" },
+    { name: "Connect", href: "#connect" },
   ];
 
   const handleNavClick = (href: string) => {
-    if (href.startsWith('/')) {
+    if (href.startsWith("/")) {
       navigate(href);
       return;
     }
@@ -27,10 +27,10 @@ const Footer = () => {
     if (isHomePage) {
       const element = document.querySelector(href);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      navigate('/' + href);
+      navigate("/" + href);
     }
   };
 
@@ -43,7 +43,7 @@ const Footer = () => {
             <motion.div
               className="mb-6 block cursor-pointer"
               whileHover={{ scale: 1.05 }}
-              onClick={() => navigate('/')}
+              onClick={() => navigate("/")}
             >
               <img
                 src={logo}
@@ -79,9 +79,12 @@ const Footer = () => {
           <div>
             <h4 className="font-display text-lg text-cream mb-6">Our Region</h4>
             <p className="font-body text-cream/60 leading-relaxed">
-              Velhe Taluka<br />
-              18 Gaon Maval Cluster<br />
-              Pune District, Maharashtra<br />
+              Velhe Taluka
+              <br />
+              18 Gaon Maval Cluster
+              <br />
+              Pune District, Maharashtra
+              <br />
               Western Ghats, India
             </p>
           </div>
@@ -90,7 +93,15 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-cream/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center">
           <p className="font-body text-sm text-cream/40 mx-auto">
-            © {currentYear} Astha Foundation. All rights reserved. Designed by <a href="https://www.cybaemtech.com/" target="_blank" rel="noopener noreferrer" className="hover:text-golden transition-colors">Cybaem Tech</a>
+            © {currentYear} Astha Foundation. All rights reserved. Designed by{" "}
+            <a
+              href="https://www.cybaemtech.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-golden transition-colors"
+            >
+              Cybaem Tech
+            </a>
           </p>
           <p className="font-body text-sm text-cream/40 hidden md:block">
             Built with faith in rural India.
