@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Handshake, Users, Globe, Building2, Heart, Leaf, PawPrint, GraduationCap, ShieldCheck } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ScrollReveal from '../components/ScrollReveal';
@@ -10,6 +11,8 @@ const Partners = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
+
+  const navigate = useNavigate();
 
   const strategicPartners = [
     {
@@ -171,17 +174,17 @@ const Partners = () => {
         </section>
 
         {/* Partnership Call to Action */}
-        <section className="section-padding bg-forest-dark text-cream">
+        <section className="section-padding bg-[#e5e7eb] text-primary">
           <div className="container-wide text-center">
             <ScrollReveal>
               <Handshake className="w-16 h-16 text-golden mx-auto mb-8" />
               <h2 className="font-display text-4xl mb-6">Building a Better Future Together</h2>
-              <p className="font-body text-xl text-cream/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+              <p className="font-body text-xl text-primary/80 max-w-2xl mx-auto mb-10 leading-relaxed">
                 Our impact is multiplied through the strength of our partnerships. Together, we are creating sustainable change in rural India.
               </p>
               <button 
-                onClick={() => document.getElementById('connect')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-golden text-forest-dark px-10 py-4 rounded-full font-display text-lg hover:bg-white transition-colors"
+                onClick={() => navigate('/#connect')}
+                className="bg-primary text-cream px-10 py-4 rounded-full font-display text-lg hover:bg-primary/90 transition-colors"
               >
                 Become a Partner
               </button>
