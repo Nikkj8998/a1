@@ -175,6 +175,14 @@ const Navbar = () => {
               Vision
             </button>
             <button
+              onClick={() => handleNavClick("/about-us")}
+              className={`font-body text-sm font-medium tracking-wide transition-all duration-300 hover:opacity-70 ${
+                isScrolled ? "text-foreground" : "text-cream"
+              }`}
+            >
+              About Us
+            </button>
+            <button
               onClick={() => handleNavClick("#connect")}
               className={`font-body text-sm font-medium tracking-wide transition-all duration-300 px-6 py-2 rounded-md border-2 ${
                 isScrolled
@@ -256,6 +264,12 @@ const Navbar = () => {
                 className="font-display text-2xl text-cream hover:text-golden transition-colors"
               >
                 Vision
+              </button>
+              <button
+                onClick={() => handleNavClick("/about-us")}
+                className="font-display text-2xl text-cream hover:text-golden transition-colors"
+              >
+                About Us
               </button>
               <button
                 onClick={() => handleNavClick("#connect")}
