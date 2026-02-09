@@ -178,11 +178,11 @@ const AboutUs = () => {
         </section>
 
         {/* Field Team Section */}
-        <section className="section-padding bg-forest-dark text-cream">
+        <section className="section-padding" style={{ backgroundColor: '#dad3c8' }}>
           <div className="container-wide">
             <ScrollReveal>
               <div className="text-center mb-16">
-                <h2 className="font-display text-4xl mb-4">Field Team & Personnel</h2>
+                <h2 className="font-display text-4xl mb-4 text-primary">Field Team & Personnel</h2>
                 <div className="w-24 h-1 bg-golden mx-auto"></div>
               </div>
             </ScrollReveal>
@@ -190,12 +190,12 @@ const AboutUs = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {fieldTeam.map((member, index) => (
                 <ScrollReveal key={member.name} delay={index * 0.1}>
-                  <div className="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 hover:border-golden/50 transition-colors h-full">
-                    <div className="text-golden mb-4">
+                  <div className="bg-white/40 backdrop-blur-sm p-6 rounded-xl border border-black/5 hover:border-golden/50 transition-colors h-full">
+                    <div className="text-primary mb-4">
                       {member.icon}
                     </div>
-                    <h4 className="font-display text-lg mb-2 text-cream">{member.name}</h4>
-                    <p className="font-body text-sm text-cream/70">
+                    <h4 className="font-display text-lg mb-2 text-primary">{member.name}</h4>
+                    <p className="font-body text-sm text-primary/70">
                       {member.role}
                     </p>
                   </div>
