@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Earthy, warm palette for Astha */
+    --background: 42 33% 96%;
+    --foreground: 25 30% 15%;
+
+    --card: 42 25% 94%;
+    --card-foreground: 25 30% 15%;
+
+    --popover: 42 25% 94%;
+    --popover-foreground: 25 30% 15%;
+
+    /* Forest green - primary */
+    --primary: 145 35% 28%;
+    --primary-foreground: 42 33% 96%;
+
+    /* Warm cream secondary */
+    --secondary: 38 40% 90%;
+    --secondary-foreground: 25 30% 20%;
+
+    /* Muted earth tones */
+    --muted: 35 20% 88%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Terracotta accent */
+    --accent: 18 55% 45%;
+    --accent-foreground: 42 33% 96%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 35 20% 82%;
+    --input: 35 20% 82%;
+    --ring: 145 35% 28%;
+
+    --radius: 0.5rem;
+
+    /* Custom colors for the NGO theme */
+    --golden: 43 75% 55%;
+    --golden-foreground: 25 30% 15%;
+    --earth: 25 35% 35%;
+    --earth-foreground: 42 33% 96%;
+    --forest-dark: 145 40% 18%;
+    --forest-light: 145 30% 40%;
+    --clay: 18 45% 55%;
+    --cream: 42 40% 95%;
+    --cream-dark: 40 25% 85%;
+
+    /* Typography */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Source Sans 3', sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 25 25% 10%;
+    --foreground: 42 25% 92%;
+
+    --card: 25 20% 14%;
+    --card-foreground: 42 25% 92%;
+
+    --popover: 25 20% 14%;
+    --popover-foreground: 42 25% 92%;
+
+    --primary: 145 30% 45%;
+    --primary-foreground: 25 25% 10%;
+
+    --secondary: 25 20% 18%;
+    --secondary-foreground: 42 25% 90%;
+
+    --muted: 25 15% 20%;
+    --muted-foreground: 35 15% 60%;
+
+    --accent: 18 50% 50%;
+    --accent-foreground: 42 33% 96%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 25 15% 22%;
+    --input: 25 15% 22%;
+    --ring: 145 30% 45%;
+
+    --golden: 43 70% 50%;
+    --earth: 25 30% 45%;
+    --forest-dark: 145 35% 12%;
+    --forest-light: 145 25% 50%;
+    --clay: 18 40% 55%;
+    --cream: 40 15% 18%;
+    --cream-dark: 40 10% 25%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-padding {
+    @apply px-6 py-20 md:px-12 lg:px-24 lg:py-32;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .gradient-overlay {
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--forest-dark) / 0.7),
+      hsl(var(--forest-dark) / 0.4)
+    );
+  }
+
+  .gradient-golden {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--golden)),
+      hsl(var(--clay))
+    );
+  }
+
+  .text-gradient-golden {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--golden)),
+      hsl(var(--clay))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:shadow-2xl hover:-translate-y-2;
+  }
+
+  .image-cover {
+    @apply w-full h-full object-cover;
+  }
+
+  .section-dark {
+    @apply bg-forest-dark text-cream;
+  }
+
+  .section-cream {
+    @apply bg-cream;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-right {
+    animation: slideRight 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideRight {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .parallax-slow {
+    will-change: transform;
+  }
+}
