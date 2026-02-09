@@ -10,10 +10,9 @@ const Footer = () => {
   const isHomePage = location.pathname === "/";
 
   const navLinks = [
-    { name: "About Whom", href: "#pillars" },
+    { name: "About Us", href: "/about-us" },
     { name: "Our Work", href: "#programs" },
     { name: "Our Partners", href: "/partners" },
-    { name: "CSR Activities", href: "/csr-activities" },
 
     { name: "Vision", href: "#vision" },
     { name: "Connect", href: "#connect" },
