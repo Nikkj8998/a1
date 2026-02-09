@@ -4,7 +4,7 @@ import { Handshake, Users, Globe, Building2, Heart, Leaf, PawPrint, GraduationCa
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ScrollReveal from '../components/ScrollReveal';
-import csrHero from '../assets/generated_images/csr_community_hero.png';
+import partnersHero from '../assets/generated_images/partners_hero.png';
 
 const Partners = () => {
   useEffect(() => {
@@ -56,10 +56,10 @@ const Partners = () => {
       
       <main className="pt-0">
         {/* Hero Section */}
-        <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-forest-dark">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-forest-dark">
           <div className="absolute inset-0 opacity-40">
             <img 
-              src={csrHero} 
+              src={partnersHero} 
               alt="Our Partners" 
               className="w-full h-full object-cover"
             />
