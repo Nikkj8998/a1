@@ -11,6 +11,7 @@ import SolarPower from "./pages/SolarPower";
 import ERiksha from "./pages/ERiksha";
 import BambooPlantationStudy from "./pages/BambooPlantationStudy";
 import CSRActivities from "./pages/CSRActivities";
+import Partners from "./pages/Partners";
 import Testimonials from "./pages/Testimonials";
 import NotFound from "./pages/NotFound";
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/e-riksha" element={<ERiksha />} />
           <Route path="/bamboo-plantation-study" element={<BambooPlantationStudy />} />
           <Route path="/csr-activities" element={<CSRActivities />} />
+          <Route path="/partners" element={<Partners />} />
           <Route path="/testimonials" element={<Testimonials />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

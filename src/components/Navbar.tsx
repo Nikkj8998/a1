@@ -150,12 +150,12 @@ const Navbar = () => {
             </NavigationMenu>
 
             <button
-              onClick={() => handleNavClick("/csr-activities")}
+              onClick={() => handleNavClick("/partners")}
               className={`font-body text-sm font-medium tracking-wide transition-all duration-300 hover:opacity-70 ${
                 isScrolled ? "text-foreground" : "text-cream"
               }`}
             >
-              CSR Activities
+              Our Partners
             </button>
 
             <button
@@ -238,10 +238,10 @@ const Navbar = () => {
                 Holistic Model
               </button>
               <button
-                onClick={() => handleNavClick("/csr-activities")}
+                onClick={() => handleNavClick("/partners")}
                 className="font-display text-2xl text-cream hover:text-golden transition-colors"
               >
-                CSR Activities
+                Our Partners
               </button>
 
               <button

@@ -12,6 +12,7 @@ const Footer = () => {
   const navLinks = [
     { name: "About Whom", href: "#pillars" },
     { name: "Our Work", href: "#programs" },
+    { name: "Our Partners", href: "/partners" },
     { name: "CSR Activities", href: "/csr-activities" },
 
     { name: "Vision", href: "#vision" },
