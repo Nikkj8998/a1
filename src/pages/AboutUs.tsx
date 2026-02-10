@@ -15,6 +15,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
+import aboutHero from "@/assets/about-hero-bg.jpg";
+
 const AboutUs = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -115,9 +117,13 @@ const AboutUs = () => {
 
       <main className="pt-0">
         {/* Hero Section */}
-        <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-forest-dark">
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-golden/20 via-transparent to-transparent" />
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-forest-dark">
+          <div className="absolute inset-0 opacity-40">
+            <img 
+              src={aboutHero} 
+              alt="About Us" 
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="container-wide relative z-10 text-center">
             <motion.span
