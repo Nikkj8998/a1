@@ -149,28 +149,26 @@ const Partners = () => {
               </div>
             </ScrollReveal>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {ngoPartners.map((partner, index) => (
                 <ScrollReveal key={partner.name} delay={index * 0.05}>
-                  <div className="bg-white p-6 rounded-xl h-full shadow-sm border border-border/30 hover:border-golden/50 transition-colors group">
-                    <div className="flex items-start gap-4">
+                  <div className="bg-white p-8 rounded-2xl h-full shadow-sm border border-border/30 hover:shadow-lg transition-all group flex flex-col">
+                    <div className="mb-6">
                       {partner.logo ? (
-                        <div className="w-16 h-16 bg-white border border-border/20 rounded-lg flex items-center justify-center p-2 shadow-sm shrink-0 mt-1">
+                        <div className="w-full h-24 bg-white border border-border/10 rounded-xl flex items-center justify-center p-4 shadow-sm group-hover:border-golden/30 transition-colors">
                           <img src={partner.logo} alt={partner.name} className="max-w-full max-h-full object-contain" />
                         </div>
                       ) : (
-                        <div className="w-10 h-10 bg-golden/10 rounded-lg flex items-center justify-center text-golden group-hover:bg-golden group-hover:text-white transition-colors flex-shrink-0 mt-1">
+                        <div className="w-16 h-16 bg-golden/10 rounded-2xl flex items-center justify-center text-golden group-hover:bg-golden group-hover:text-white transition-all">
                           {partner.icon}
                         </div>
                       )}
-                      <div className="flex-1">
-                        <div className="mb-2">
-                          <h4 className="font-display text-lg text-primary">{partner.name}</h4>
-                        </div>
-                        <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                          {partner.description}
-                        </p>
-                      </div>
+                    </div>
+                    <div className="flex-1 flex flex-col">
+                      <h4 className="font-display text-xl text-primary mb-4">{partner.name}</h4>
+                      <p className="font-body text-sm text-muted-foreground leading-relaxed">
+                        {partner.description}
+                      </p>
                     </div>
                   </div>
                 </ScrollReveal>
@@ -189,18 +187,18 @@ const Partners = () => {
               </div>
             </ScrollReveal>
             
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {associates.map((associate, index) => (
                 <ScrollReveal key={associate.name} delay={index * 0.1}>
-                  <div className="bg-white p-8 rounded-2xl border border-border/30 shadow-sm hover:shadow-md transition-shadow flex gap-6 items-center">
+                  <div className="bg-white p-10 rounded-3xl border border-border/30 shadow-sm hover:shadow-xl transition-all flex flex-col items-center text-center">
                     {associate.logo && (
-                      <div className="w-24 h-24 flex-shrink-0 bg-white border border-border/20 rounded-xl p-3 flex items-center justify-center">
+                      <div className="w-full h-32 mb-8 bg-white border border-border/10 rounded-2xl p-6 flex items-center justify-center shadow-sm">
                         <img src={associate.logo} alt={associate.name} className="max-w-full max-h-full object-contain" />
                       </div>
                     )}
                     <div className="flex-1">
-                      <h3 className="font-display text-xl mb-3 text-primary">{associate.name}</h3>
-                      <p className="font-body text-muted-foreground text-sm leading-relaxed">
+                      <h3 className="font-display text-2xl mb-4 text-primary">{associate.name}</h3>
+                      <p className="font-body text-base text-muted-foreground leading-relaxed max-w-md">
                         {associate.description}
                       </p>
                     </div>
