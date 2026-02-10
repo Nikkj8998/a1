@@ -27,7 +27,7 @@ const VisionSection = () => {
   return (
     <section
       id="vision"
-      className="section-padding bg-cream relative overflow-hidden"
+      className="pt-10 pb-24 bg-cream relative overflow-hidden"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
