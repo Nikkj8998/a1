@@ -46,7 +46,7 @@ const HolisticModel = () => {
   ];
 
   return (
-    <section id="holistic-model" className="py-24 bg-cream/30">
+    <section id="holistic-model" className="pt-24 pb-0 bg-cream/30">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -70,9 +70,17 @@ const HolisticModel = () => {
               key={pillar.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ 
+                y: -10,
+                boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                borderColor: "rgba(46, 97, 66, 0.2)"
+              }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white p-8 rounded-2xl shadow-sm border border-forest/5 flex flex-col"
+              transition={{ 
+                delay: index * 0.1,
+                y: { duration: 0.3, ease: "easeOut" }
+              }}
+              className="bg-white p-8 rounded-2xl shadow-sm border border-forest/5 flex flex-col cursor-default transition-colors duration-300"
             >
               <div className="mb-6 p-4 bg-forest/5 rounded-xl w-fit">
                 {pillar.icon}

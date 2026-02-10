@@ -30,7 +30,7 @@ const pillars = [
     title: "The Elderly",
     subtitle: "Dignity in Twilight",
     description:
-      "As a priority section of society, the elderly shape the aspirations of the youth but often face lonely and neglected lives without adequate health care or nutrition. We focus on their psychological and physical well-being because their status directly impacts the morale of the coming generations who will one day enter this age group",
+      "As a priority section of society, the elderly shape the aspirations of the youth but often face lonely and neglected lives without adequate health care or nutrition. We focus on their psychological and physical well-being because their status directly impacts the morale of the coming generations who will one day enter this age group.",
     image: elderlyDignity,
     stats: "71%",
     statsLabel: "Elderly feel neglected in villages",
