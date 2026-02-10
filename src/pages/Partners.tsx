@@ -115,14 +115,15 @@ const Partners = () => {
             <div className="grid md:grid-cols-3 gap-8">
               {strategicPartners.map((partner, index) => (
                 <ScrollReveal key={partner.name} delay={index * 0.1}>
-                  <div className="bg-white p-8 rounded-2xl h-full shadow-sm border border-border/50 hover:shadow-md transition-shadow">
-                    <div className="flex justify-between items-start mb-6">
-                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-                        {partner.icon}
-                      </div>
-                      {partner.logo && (
-                        <div className="h-10 px-3 bg-white border border-border/30 rounded-lg flex items-center shadow-sm">
+                  <div className="bg-white p-8 rounded-2xl h-full shadow-sm border border-border/50 hover:shadow-md transition-shadow flex flex-col items-center text-center">
+                    <div className="mb-6">
+                      {partner.logo ? (
+                        <div className="h-16 px-4 bg-white border border-border/30 rounded-xl flex items-center shadow-sm">
                           <img src={partner.logo} alt={partner.name} className="h-full object-contain" />
+                        </div>
+                      ) : (
+                        <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                          {partner.icon}
                         </div>
                       )}
                     </div>
