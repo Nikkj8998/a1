@@ -21,6 +21,7 @@ import swayamsiddhaLogo from '../assets/partners/swayamsiddha.png';
 import udayanLogo from '../assets/partners/udayan.png';
 import vidyachildLogo from '../assets/partners/vidyachild.jpg';
 import xoriantLogo from '../assets/partners/xoriant.png';
+import chhayaLogo from '../assets/partners/chhaya.jfif';
 
 const Partners = () => {
   useEffect(() => {
@@ -34,12 +35,11 @@ const Partners = () => {
       name: "Coforge Ltd",
       logo: coforgeLogo,
       description: "ASTHA's main corporate partner for conducting Corporate Social Responsibility (CSR) impact assessments and providing strategic inputs to increase project effectiveness.",
-      icon: <Building2 className="w-6 h-6" />
     },
     {
       name: "Chhaya Strategic Advisors (Chhaya)",
+      logo: chhayaLogo,
       description: "An associated consulting firm that works alongside ASTHA to provide strategic inputs, design monitoring systems, and carry out impact assessments.",
-      icon: <ShieldCheck className="w-6 h-6" />
     },
     {
       name: "N G Paranjape Pratishthan (NGPP)",
