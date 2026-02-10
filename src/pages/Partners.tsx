@@ -6,6 +6,10 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ScrollReveal from '../components/ScrollReveal';
 import partnersHero from '../assets/generated_images/partners_hero.png';
+import coforgeLogo from '../assets/logos/coforge.png';
+import pfaLogo from '../assets/logos/pfa.png';
+import safeLogo from '../assets/logos/safe.png';
+import vosdLogo from '../assets/logos/vosd.png';
 
 const Partners = () => {
   useEffect(() => {
@@ -17,6 +21,7 @@ const Partners = () => {
   const strategicPartners = [
     {
       name: "Coforge Ltd",
+      logo: coforgeLogo,
       description: "ASTHA's main corporate partner for conducting Corporate Social Responsibility (CSR) impact assessments and providing strategic inputs to increase project effectiveness.",
       icon: <Building2 className="w-6 h-6" />
     },
@@ -43,9 +48,9 @@ const Partners = () => {
     { name: "Sparsha Trust", description: "Dedicated to the holistic development and rehabilitation of vulnerable children and youth.", icon: <Heart /> },
     { name: "Margadarshi (The Association for Physically Challenged)", description: "Supports the physical, social, and economic well-being of persons with disabilities.", icon: <Users /> },
     { name: "Ashagram (Param Prasad Charitable Society)", description: "Serves intellectually disabled and orphaned children and adults.", icon: <Heart /> },
-    { name: "SAFE (Social Action for Forest and Environment)", description: "Focuses on environmental conservation, such as restoring dumping sites into biodiversity parks.", icon: <Leaf /> },
-    { name: "People for Animals (PFA)", description: "Dedicated to animal welfare, rescue, and rehabilitation.", icon: <PawPrint /> },
-    { name: "Voice of Stray Dogs (VOSD)", description: "Operates as a rescue and rehabilitation centre for stray dogs.", icon: <PawPrint /> }
+    { name: "SAFE (Social Action for Forest and Environment)", logo: safeLogo, description: "Focuses on environmental conservation, such as restoring dumping sites into biodiversity parks.", icon: <Leaf /> },
+    { name: "People for Animals (PFA)", logo: pfaLogo, description: "Dedicated to animal welfare, rescue, and rehabilitation.", icon: <PawPrint /> },
+    { name: "Voice of Stray Dogs (VOSD)", logo: vosdLogo, description: "Operates as a rescue and rehabilitation centre for stray dogs.", icon: <PawPrint /> }
   ];
 
   const associates = [
@@ -100,8 +105,15 @@ const Partners = () => {
               {strategicPartners.map((partner, index) => (
                 <ScrollReveal key={partner.name} delay={index * 0.1}>
                   <div className="bg-white p-8 rounded-2xl h-full shadow-sm border border-border/50 hover:shadow-md transition-shadow">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6 text-primary">
-                      {partner.icon}
+                    <div className="flex justify-between items-start mb-6">
+                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                        {partner.icon}
+                      </div>
+                      {partner.logo && (
+                        <div className="h-10 px-3 bg-white border border-border/30 rounded-lg flex items-center shadow-sm">
+                          <img src={partner.logo} alt={partner.name} className="h-full object-contain" />
+                        </div>
+                      )}
                     </div>
                     <h3 className="font-display text-xl mb-4 text-primary">{partner.name}</h3>
                     <p className="font-body text-muted-foreground text-sm leading-relaxed">
@@ -134,8 +146,15 @@ const Partners = () => {
                       <div className="w-10 h-10 bg-golden/10 rounded-lg flex items-center justify-center text-golden group-hover:bg-golden group-hover:text-white transition-colors flex-shrink-0 mt-1">
                         {partner.icon}
                       </div>
-                      <div>
-                        <h4 className="font-display text-lg mb-2 text-primary">{partner.name}</h4>
+                      <div className="flex-1">
+                        <div className="flex justify-between items-start mb-2 gap-2">
+                          <h4 className="font-display text-lg text-primary">{partner.name}</h4>
+                          {partner.logo && (
+                            <div className="h-8 px-2 bg-white border border-border/30 rounded flex items-center shadow-sm shrink-0">
+                              <img src={partner.logo} alt={partner.name} className="h-full object-contain" />
+                            </div>
+                          )}
+                        </div>
                         <p className="font-body text-sm text-muted-foreground leading-relaxed">
                           {partner.description}
                         </p>
