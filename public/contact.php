@@ -108,6 +108,10 @@ if ($conn && $conn->ping()) {
 // ─── Email Configuration ──────────────────────────────────────────────
 $adminEmail = "info@astharural.org";
 $currentDate = date('Y-m-d H:i:s');
+$primaryColor = "#2d4a3e"; // Forest green from website
+$accentColor = "#c2410c";  // Terracotta accent from website
+$bgColor = "#fdfbf7";      // Cream background from website
+$logoUrl = "https://astharural.org/assets/logo.png"; // Assuming public path based on src
 
 // Admin notification email headers
 $headers  = "MIME-Version: 1.0" . "\r\n";
@@ -128,59 +132,57 @@ $adminMessage = '
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Contact Form Submission</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f9fafb; color: #333; }
-    .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; padding: 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-    .header { background: linear-gradient(90deg, #1e3a8a, #3b82f6); color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
-    .header h1 { margin: 0; font-size: 24px; font-weight: bold; }
-    .content { padding: 20px; line-height: 1.6; }
-    .info-section { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 15px; margin: 15px 0; }
-    .info-row { margin: 8px 0; padding: 5px 0; border-bottom: 1px solid #e2e8f0; }
-    .info-row:last-child { border-bottom: none; }
-    .label { font-weight: bold; color: #1f2937; display: inline-block; min-width: 120px; }
-    .value { color: #374151; }
-    .message-section { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 15px; margin: 15px 0; border-radius: 0 6px 6px 0; }
-    .footer { padding: 15px 20px; text-align: center; font-size: 12px; color: #6b7280; background: #f3f4f6; border-radius: 0 0 8px 8px; }
-    .timestamp { font-size: 11px; color: #6b7280; text-align: right; margin-top: 10px; }
+    body { font-family: "Source Sans 3", Arial, sans-serif; margin: 0; padding: 0; background-color: ' . $bgColor . '; color: #1a1a1a; }
+    .container { max-width: 600px; margin: 20px auto; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+    .header { background-color: ' . $primaryColor . '; padding: 30px 20px; text-align: center; }
+    .logo { max-width: 180px; height: auto; margin-bottom: 15px; }
+    .header h1 { color: #ffffff; margin: 0; font-size: 22px; font-weight: 600; letter-spacing: 0.5px; }
+    .content { padding: 40px 30px; line-height: 1.6; }
+    .section-title { color: ' . $primaryColor . '; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; border-bottom: 2px solid ' . $bgColor . '; padding-bottom: 8px; }
+    .info-grid { margin-bottom: 30px; }
+    .info-item { margin-bottom: 12px; display: flex; }
+    .label { font-weight: 600; color: #4b5563; width: 100px; font-size: 14px; }
+    .value { color: #1f2937; flex: 1; font-size: 15px; }
+    .message-box { background: #f9fafb; border-left: 4px solid ' . $accentColor . '; padding: 20px; border-radius: 0 8px 8px 0; margin-top: 10px; font-style: italic; color: #374151; }
+    .footer { padding: 25px; text-align: center; font-size: 12px; color: #6b7280; background: #f9fafb; border-top: 1px solid #e5e7eb; }
+    .timestamp { font-size: 11px; color: #9ca3af; margin-top: 15px; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <h1>🔔 New Contact Form Submission</h1>
+      <img src="' . $logoUrl . '" alt="Astha Foundation Logo" class="logo">
+      <h1>New Inquiry Received</h1>
     </div>
     <div class="content">
-      <p><strong>Hello Team,</strong></p>
-      <p>You have received a new inquiry from your website contact form. Please review the details below:</p>
-      
-      <div class="info-section">
-        <div class="info-row">
-            <span class="label">👤 Name:</span>
-            <span class="value">' . htmlspecialchars($name) . '</span>
+      <div class="section-title">Submission Details</div>
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="label">Name</span>
+          <span class="value">' . htmlspecialchars($name) . '</span>
         </div>
-        <div class="info-row">
-            <span class="label">📧 Email:</span>
-            <span class="value">' . htmlspecialchars($email) . '</span>
+        <div class="info-item">
+          <span class="label">Email</span>
+          <span class="value">' . htmlspecialchars($email) . '</span>
         </div>
-        <div class="info-row">
-            <span class="label">📱 Phone:</span>
-            <span class="value">' . htmlspecialchars($phone) . '</span>
+        <div class="info-item">
+          <span class="label">Phone</span>
+          <span class="value">' . htmlspecialchars($phone) . '</span>
         </div>
       </div>
       
-      <div class="message-section">
-        <p><strong>💬 Message:</strong></p>
-        <p>' . nl2br(htmlspecialchars($message)) . '</p>
+      <div class="section-title">Message Content</div>
+      <div class="message-box">
+        ' . nl2br(htmlspecialchars($message)) . '
       </div>
-      
-      <p><strong>⏰ Next Steps:</strong> Please respond within 24 hours to maintain excellent service standards.</p>
       
       <div class="timestamp">
-        Received on: ' . $currentDate . ' (Server Time)
+        Received on: ' . $currentDate . '
       </div>
     </div>
     <div class="footer">
-      &copy; ' . date("Y") . ' Astha Foundation<br>
-      <a href="mailto:info@astharural.org" style="color:#3b82f6; text-decoration:none;">info@astharural.org</a>
+      &copy; ' . date("Y") . ' Astha Foundation. All rights reserved.<br>
+      This is an automated notification from astharural.org
     </div>
   </div>
 </body>
@@ -203,33 +205,36 @@ $userMessage = '
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thank You - Astha Foundation</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f9fafb; color: #333; }
-    .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-    .header { text-align: center; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
-    .content { padding: 20px 0; line-height: 1.6; }
-    .footer { text-align: center; font-size: 12px; color: #6b7280; padding-top: 20px; border-top: 1px solid #e2e8f0; }
-    .highlight { color: #1e3a8a; font-weight: bold; }
-    .btn { display: inline-block; margin-top: 15px; padding: 12px 24px; background: #1e3a8a; color: #fff; text-decoration: none; border-radius: 8px; font-weight: bold; }
+    body { font-family: "Source Sans 3", Arial, sans-serif; margin: 0; padding: 0; background-color: ' . $bgColor . '; color: #1a1a1a; }
+    .container { max-width: 600px; margin: 20px auto; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+    .header { background-color: ' . $primaryColor . '; padding: 30px 20px; text-align: center; }
+    .logo { max-width: 180px; height: auto; margin-bottom: 15px; }
+    .header h1 { color: #ffffff; margin: 0; font-size: 22px; font-weight: 600; letter-spacing: 0.5px; }
+    .content { padding: 40px 30px; line-height: 1.7; text-align: center; }
+    .content p { margin-bottom: 20px; color: #374151; }
+    .highlight { color: ' . $primaryColor . '; font-weight: 700; }
+    .btn { display: inline-block; padding: 14px 30px; background-color: ' . $accentColor . '; color: #ffffff !important; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 15px; margin: 20px 0; transition: background 0.3s ease; }
+    .footer { padding: 25px; text-align: center; font-size: 12px; color: #6b7280; background: #f9fafb; border-top: 1px solid #e5e7eb; }
+    .social-links { margin-top: 10px; }
+    .social-links a { color: ' . $primaryColor . '; text-decoration: none; margin: 0 10px; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <h2 style="color: #1e3a8a;">Thank You for Reaching Out!</h2>
+      <img src="' . $logoUrl . '" alt="Astha Foundation Logo" class="logo">
+      <h1>Thank You for Connecting</h1>
     </div>
     <div class="content">
       <p>Dear <span class="highlight">' . htmlspecialchars($name) . '</span>,</p>
-      <p>Thank you for contacting <span class="highlight">Astha Foundation</span>. We have received your message and appreciate you taking the time to connect with us.</p>
-      <p>Our team is reviewing your inquiry and will get back to you as soon as possible.</p>
-      <p>In the meantime, feel free to visit our website to learn more about our latest initiatives and impact stories.</p>
-      <p style="text-align:center;">
-        <a href="https://astharural.org" class="btn">Visit Our Website</a>
-      </p>
-      <p>Best regards,<br><strong>Team Astha Foundation</strong></p>
+      <p>We have successfully received your inquiry at <span class="highlight">Astha Foundation</span>. Our team values your interest in our mission and will review your message promptly.</p>
+      <p>We strive to respond to all inquiries within 24-48 business hours. In the meantime, you can explore our ongoing projects and recent impact stories on our website.</p>
+      <a href="https://astharural.org" class="btn">Explore Our Work</a>
+      <p>Best Regards,<br><span class="highlight">Team Astha Foundation</span></p>
     </div>
     <div class="footer">
       &copy; ' . date("Y") . ' Astha Foundation | Velhe Taluka, Pune<br>
-      <a href="https://astharural.org" style="color:#3b82f6; text-decoration:none;">www.astharural.org</a>
+      <a href="https://astharural.org" style="color:' . $primaryColor . '; text-decoration:none;">www.astharural.org</a>
     </div>
   </div>
 </body>
